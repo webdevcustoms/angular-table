@@ -73,7 +73,8 @@ export class NewDialogComponent implements OnInit {
         '',
         [
           Validators.required,
-          Validators.pattern(/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/), // Валидация email формата
+          Validators.email, //Стандартная валидация email
+          Validators.pattern(/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/), // Кастомная валидация email
         ],
       ],
       phone: [
@@ -81,7 +82,7 @@ export class NewDialogComponent implements OnInit {
         [
           Validators.pattern(
             /^(\+7|8)[\s\-]?\(?\d{3}\)?[\s\-]?\d{3}[\s\-]?\d{2}[\s\-]?\d{2}$/
-          ), // Валидация российского номера телефона
+          ), // Валидация российского телефонного номера
         ],
       ],
     });
@@ -161,5 +162,17 @@ export class NewDialogComponent implements OnInit {
       };
       this.dialogRef.close(updatedUser);
     }
+  }
+  // Метод для получения сообщения о типе ошибки
+  getEmailErrorMessage(): string {
+    const emailControl = this.myForm.get('email');
+    if (emailControl?.errors?.['required']) {
+      return 'Email обязателен';
+    } else if (emailControl?.errors?.['email']) {
+      return 'Некорректный адрес email';
+    } else if (emailControl?.errors?.['pattern']) {
+      return 'Некорректный формат email';
+    }
+    return '';
   }
 }

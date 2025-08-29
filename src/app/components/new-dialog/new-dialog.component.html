@@ -52,12 +52,7 @@
           myForm.get('email')?.invalid && myForm.get('email')?.touched
         "
       >
-        <small *ngIf="myForm.get('email')?.errors?.['required']">
-          Email обязателен
-        </small>
-        <small *ngIf="myForm.get('email')?.errors?.['email']">
-          Некорректный адрес
-        </small>
+        <small>{{ getEmailErrorMessage() }}</small>
       </div>
     </div>
     <div class="form-item">

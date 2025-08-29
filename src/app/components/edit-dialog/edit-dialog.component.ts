@@ -99,11 +99,11 @@ export class EditDialogComponent {
   getEmailErrorMessage(): string {
     const emailControl = this.editForm.get('email');
     if (emailControl?.errors?.['required']) {
-      return 'Email обязателен';
+      return 'Почта обязательна';
     } else if (emailControl?.errors?.['email']) {
-      return 'Некорректный адрес email';
+      return 'Некорректный адрес';
     } else if (emailControl?.errors?.['pattern']) {
-      return 'Некорректный формат email';
+      return 'Некорректный формат';
     }
     return '';
   }

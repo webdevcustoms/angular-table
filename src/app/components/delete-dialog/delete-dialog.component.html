@@ -1,0 +1,18 @@
+<h1 mat-dialog-title class="form-title">{{ dialogTitle }}</h1>
+<div mat-dialog-content class="delete">
+  <div class="delete__message">
+    Удалить выбранные строки ({{ countToDelete }})?
+  </div>
+  <div class="buttons delete__buttons">
+    <button class="form__button form__button_white" (click)="onClose()">
+      Отмена
+    </button>
+    <button
+      type="submit"
+      class="form__button form__button_blue"
+      (click)="onConfirm()"
+    >
+      Удалить
+    </button>
+  </div>
+</div>

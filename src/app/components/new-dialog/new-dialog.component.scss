@@ -1,0 +1,103 @@
+.form-title {
+  margin: 27px 0 0px 40px;
+  padding: 0;
+  color: var(--main-title-color);
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 100%;
+  letter-spacing: 0em;
+}
+
+.mat-mdc-dialog-surface.mdc-dialog__surface {
+  border-radius: 20px;
+}
+
+.mat-mdc-form-field-subscript-wrapper.mat-mdc-form-field-bottom-align {
+  display: none;
+}
+
+.form-item {
+  &:not(:last-child) {
+    margin-bottom: 19px;
+  }
+}
+
+.mat-mdc-dialog-content.mdc-dialog__content.form-dialog {
+  width: 448px;
+  height: fit-content;
+  padding: 33px 40px 40px;
+  border-radius: 20px;
+  .mat-mdc-form-field {
+    width: 100%;
+  }
+  .buttons {
+    margin-top: 26px;
+    display: flex;
+    justify-content: end;
+    column-gap: 4px;
+  }
+  .hide {
+    opacity: 0;
+    visibility: hidden;
+    display: flex;
+    justify-content: end;
+    color: #ba1a1a;
+    letter-spacing: 0.6px;
+    margin-right: 8px;
+    margin-top: 1px;
+    height: 21px;
+  }
+  .visible {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.form__button {
+  height: 53px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 400;
+  font-size: 18px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  border-radius: 37px;
+  transition: all var(--hover-transition);
+  &_white {
+    width: 111px;
+    color: var(--blue-text-color);
+    background-color: transparent;
+    &:focus-visible,
+    &:focus {
+      background-color: transparent;
+      outline: none;
+      border: none;
+    }
+    &:hover {
+      background-color: rgba(60, 124, 248, 0.1);
+      outline: none;
+      border: none;
+    }
+    &:active {
+      background-color: rgba(25, 78, 182, 0.2);
+      outline: none;
+      border: none;
+    }
+  }
+  &_blue {
+    width: 134px;
+    color: var(--background-wrapper-color);
+    background-color: var(--blue-text-color);
+    &:hover {
+      background-color: #3c7cf8;
+    }
+    &:active {
+      background-color: #194eb6;
+    }
+    &:disabled {
+      background-color: #d8dee9;
+    }
+  }
+}

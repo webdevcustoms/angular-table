@@ -1,0 +1,57 @@
+:host {
+  --blue-text-color: #2f7fd5;
+  --background-light-blue: #e9f3ff;
+  --background-wrapper-color: #fff;
+  --icon-main-color: #a8b0bf;
+  --icon-hover-color: #304879;
+  --icon-background-hover-color: #e2eeff;
+  --icon-background-active-color: #b5d3ff;
+  --hover-transition: 0.3s ease-in;
+
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol";
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol";
+  box-sizing: border-box;
+}
+
+main {
+  width: 100%;
+  min-height: 100%;
+  box-sizing: inherit;
+  position: relative;
+  background-color: var(--background-light-blue);
+}
+.container {
+  max-width: 1888px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+.wrapper {
+  width: 100%;
+  height: 100%;
+}
+.table {
+  background-color: var(--background-wrapper-color);
+  border-radius: 20px;
+}
+h1 {
+  font-weight: 500;
+  font-size: 28px;
+  letter-spacing: 0.01em;
+  color: var(--blue-text-color);
+  margin: 0;
+  padding: 27px 0 27px 12px;
+}

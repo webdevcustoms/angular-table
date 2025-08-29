@@ -1,0 +1,99 @@
+<h2 mat-dialog-title class="form-title">{{ dialogTitle }}</h2>
+<div mat-dialog-content class="form-dialog">
+  <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+    <div class="form-item">
+      <mat-form-field appearance="outline" [hideRequiredMarker]="true">
+        <mat-label>Имя</mat-label>
+        <input #firstInput matInput formControlName="name" tabindex="-1" />
+      </mat-form-field>
+      <div
+        class="hide"
+        [class.visible]="
+          myForm.get('name')?.invalid && myForm.get('name')?.touched
+        "
+      >
+        <small *ngIf="myForm.get('name')?.errors?.['required']">
+          Имя обязательно
+        </small>
+        <small *ngIf="myForm.get('name')?.errors?.['minlength']">
+          Минимальное количество символов: 2
+        </small>
+      </div>
+    </div>
+
+    <div class="form-item">
+      <mat-form-field appearance="outline" [hideRequiredMarker]="true">
+        <mat-label>Фамилия</mat-label>
+        <input matInput formControlName="surname" tabindex="-1" />
+      </mat-form-field>
+      <div
+        class="hide"
+        [class.visible]="
+          myForm.get('surname')?.invalid && myForm.get('surname')?.touched
+        "
+      >
+        <small *ngIf="myForm.get('surname')?.errors?.['required']">
+          Фамилия обязательна
+        </small>
+        <small *ngIf="myForm.get('surname')?.errors?.['minlength']">
+          Минимальное количество символов: 2
+        </small>
+      </div>
+    </div>
+
+    <div class="form-item">
+      <mat-form-field appearance="outline" [hideRequiredMarker]="true">
+        <mat-label>E-mail</mat-label>
+        <input matInput formControlName="email" tabindex="-1" />
+      </mat-form-field>
+      <div
+        class="hide"
+        [class.visible]="
+          myForm.get('email')?.invalid && myForm.get('email')?.touched
+        "
+      >
+        <small *ngIf="myForm.get('email')?.errors?.['required']">
+          Email обязателен
+        </small>
+        <small *ngIf="myForm.get('email')?.errors?.['email']">
+          Некорректный адрес
+        </small>
+      </div>
+    </div>
+    <div class="form-item">
+      <mat-form-field appearance="outline" [hideRequiredMarker]="true">
+        <mat-label>Телефон</mat-label>
+        <input matInput formControlName="phone" tabindex="-1" />
+      </mat-form-field>
+      <div
+        class="hide"
+        [class.visible]="
+          myForm.get('phone')?.invalid && myForm.get('phone')?.touched
+        "
+      >
+        <small
+          class="hide"
+          [class.visible]="
+          myForm.get('phone')?.errors?.['pattern']
+        "
+        >
+          Некорректный номер телефона
+        </small>
+      </div>
+    </div>
+
+    <div class="buttons">
+      <button (click)="onClose()" class="form__button form__button_white">
+        Отмена
+      </button>
+      <button
+        type="submit"
+        [disabled]="myForm.invalid"
+        (click)="onConfirm()"
+        class="form__button form__button_blue"
+      >
+        Сохранить
+      </button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,80 @@
+.form-title {
+  margin: 27px 0 0px 40px;
+  padding: 0;
+  color: var(--main-title-color);
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 100%;
+  letter-spacing: 0em;
+}
+
+.mat-mdc-dialog-surface.mdc-dialog__surface {
+  border-radius: 20px;
+}
+
+.form-item {
+  &:not(:last-child) {
+    margin-bottom: 19px;
+  }
+}
+
+.mat-mdc-dialog-content.mdc-dialog__content.delete {
+  width: 448px;
+  height: fit-content;
+  padding: 26px 40px 40px;
+  border-radius: 20px;
+  .mat-mdc-form-field {
+    width: 100%;
+  }
+  .delete__buttons {
+    margin-top: 26px;
+    display: flex;
+    justify-content: end;
+    column-gap: 4px;
+    .form__button {
+      height: 53px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: 400;
+      font-size: 18px;
+      border: none;
+      cursor: pointer;
+      border-radius: 37px;
+      transition: all var(--hover-transition);
+      &_white {
+        width: 111px;
+        color: var(--blue-text-color);
+        background-color: transparent;
+        &:hover {
+          background-color: rgba(60, 124, 248, 0.1);
+        }
+        &:active {
+          background-color: rgba(25, 78, 182, 0.2);
+        }
+      }
+      &_blue {
+        width: 115px;
+        color: var(--background-wrapper-color);
+        background-color: var(--blue-text-color);
+        &:hover {
+          background-color: #3c7cf8;
+        }
+        &:active {
+          background-color: #194eb6;
+        }
+        &:disabled {
+          background-color: #d8dee9;
+        }
+      }
+    }
+  }
+}
+.delete__message {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 122%;
+  letter-spacing: 0.01em;
+  color: var(--main-text-color);
+  margin-bottom: 86px;
+}

@@ -1,0 +1,33 @@
+@use "@angular/material" as mat;
+
+:root {
+  --blue-text-color: #2f7fd5;
+  --blue-title-color: #2d4d97;
+  --blue-backgroud-color: #4a95f7;
+  --main-text-color: #263238;
+  --main-title-color: #231f20;
+  --background-light-blue: #e9f3ff;
+  --background-wrapper-color: #fff;
+  --icon-main-color: #a8b0bf;
+  --icon-hover-color: #304879;
+  --icon-background-hover-color: #e2eeff;
+  --icon-background-active-color: #b5d3ff;
+  --input-border-default-color: #bbc5c9;
+  --input-border-visited-color: #535760;
+  --error-invalid-color: #da1b1b;
+  --hover-transition: 0.3s ease-in;
+}
+
+html,
+body {
+  height: 100%;
+  color: var(--main-text-color);
+  overflow: hidden;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+.cdk-overlay-backdrop.cdk-overlay-dark-backdrop.cdk-overlay-backdrop-showing {
+  background: rgba(38, 50, 56, 0.32);
+}

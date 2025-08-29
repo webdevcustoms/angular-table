@@ -1,0 +1,58 @@
+<table
+  mat-table
+  [dataSource]="dataSource"
+  matSort
+  (matSortChange)="sortData($event)"
+  class="mat-elevation-z8"
+>
+  <ng-container matColumnDef="select">
+    <th mat-header-cell *matHeaderCellDef>
+      <mat-checkbox
+        [checked]="dataSource.data.length > 0 && isAllSelected()"
+        [indeterminate]="
+          dataSource.data.length > 0 &&
+          selectionService.selection.hasValue() &&
+          !isAllSelected()
+        "
+        (change)="toggleAllRows()"
+        [disabled]="dataSource.data.length === 0"
+      ></mat-checkbox>
+    </th>
+    <td mat-cell *matCellDef="let row">
+      <mat-checkbox
+        (click)="$event.stopPropagation()"
+        (change)="selectionService.selection.toggle(row)"
+        [checked]="selectionService.selection.isSelected(row)"
+      ></mat-checkbox>
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Имя</th>
+    <td
+      mat-cell
+      *matCellDef="let element"
+      (click)="onRowClick(element)"
+      [class.selected]="selectionService.selection.isSelected(element)"
+    >
+      {{ element.name }}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="surname">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Фамилия</th>
+    <td mat-cell *matCellDef="let element">{{ element.surname }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="email">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>E-mail</th>
+    <td mat-cell *matCellDef="let element">{{ element.email }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="phone">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Телефон</th>
+    <td mat-cell *matCellDef="let element">{{ element.phone }}</td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>

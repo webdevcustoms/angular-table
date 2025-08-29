@@ -92,11 +92,13 @@ export class DataService {
   }
 
   // Обновляем данные пользователя
-  public updateUser(updatedUser: UserElement): void {
+  public updateUser(updatedUser: UserElement, oldEmail?: string): void {
     const currentData = this.userDataSubject.value;
 
-    // Ищем пользователя по email и передаем идентификатор
-    const index = currentData.findIndex((u) => u.email === updatedUser.email);
+    // Ищем пользователя по старому email (если передан) или по новому
+    const index = currentData.findIndex((u) =>
+      oldEmail ? u.email === oldEmail : u.email === updatedUser.email
+    );
 
     if (index !== -1) {
       // Создание нового массива с обновленными данными
@@ -104,6 +106,8 @@ export class DataService {
       newData[index] = updatedUser;
       this.userDataSubject.next(newData);
       this.saveToLocalStorage(newData);
+    } else {
+      console.warn('Пользователь не найден для обновления');
     }
   }
 
